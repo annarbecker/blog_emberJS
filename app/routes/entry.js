@@ -26,7 +26,6 @@ export default Ember.Route.extend({
       });
     },
     deleteComment(comment) {
-
       comment.destroyRecord();
     }
   }
