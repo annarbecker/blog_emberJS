@@ -1,3 +1,21 @@
-<h2 id="title">Welcome to Ember</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">{{#link-to 'index'}}BLOGGIE{{/link-to}}</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>{{#link-to 'index'}}Home{{/link-to}}</a></li>
+        <li><a>{{#link-to 'about'}}About{{/link-to}}</a></li>
+        <li><a>{{#link-to 'contact'}}Contact{{/link-to}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class = "jumbotron">
+  <h1>Bloggie.commie</h1>
+</header>
 
-{{outlet}}
+<div class="container">
+  {{outlet}}
+</div>
