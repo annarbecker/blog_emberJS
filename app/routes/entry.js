@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   actions: {
     update(entry, params) {
       Object.keys(params).forEach(function(key) {
-        if(params[key] !==undefined) {
+        if(params[key] !== undefined) {
           entry.set(key, params[key]);
         }
       });
@@ -16,6 +16,14 @@ export default Ember.Route.extend({
     deleteEntry(entry) {
       entry.destroyRecord();
       this.transitionTo('index');
+    },
+    saveComment(params) {
+      var newComment = this.store.createRecord('comment', params);
+      var entry = params.entry;
+      entry.get('comments').addObject(newComment);
+      newComment.save().then(function() {
+        return entry.save();
+      });
     }
   }
 });
