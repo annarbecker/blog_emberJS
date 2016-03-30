@@ -4,4 +4,5 @@
 <h5>{{comment.author}}</h5>
 <p>{{comment.date}}</p>
 <p>{{comment.message}}</p>
+<button {{action 'deleteComment' comment}}>Remove</button>
 {{/each}}
