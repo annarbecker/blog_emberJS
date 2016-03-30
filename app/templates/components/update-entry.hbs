@@ -1,0 +1,40 @@
+<p>update-entry.hbs</p>
+{{#if updateEntryForm}}
+<div>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      {{input value=title id="title" placeholder=entry.title}}
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      {{input value=author id="author" placeholder=entry.author}}
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      {{input type="date" value=date id="date" placeholder=entry.date}}
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      {{input value=category id="category" placeholder=entry.category}}
+    </div>
+
+    <div class="form-group">
+      <label for="tagLine">Tagline</label>
+      {{input value=tagLine id="tagLine" placeholder=entry.tagLine}}
+    </div>
+
+    <div class="form-group">
+      <label for="body">Entry</label>
+      {{textarea value=body id="body" placeholder=entry.body}}
+    </div>
+
+    <button {{action 'update' entry}}>Update</button>
+  </form>
+</div>
+{{else}}
+<button {{action 'updateEntryForm'}}>Update Entry</button>
+{{/if}}
