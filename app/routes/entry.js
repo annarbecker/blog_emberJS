@@ -14,7 +14,12 @@ export default Ember.Route.extend({
       entry.save();
     },
     deleteEntry(entry) {
-      entry.destroyRecord();
+      var comment_deletions = entry.get('comments').map(function(comment) {
+        return comment.destroyRecord();
+      });
+      Ember.RSVP.all(comment_deletions).then(function() {
+        entry.destroyRecord();
+      });
       this.transitionTo('index');
     },
     saveComment(params) {
